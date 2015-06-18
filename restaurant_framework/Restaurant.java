@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Restaurant{
+public class restaurant{
 
     final static String COLOR_ITEM = "\u001B[100m";
     final static String COLOR_PRICE = "\u001B[40m";
@@ -36,11 +36,41 @@ public class Restaurant{
         double iceCreamPrice = 2.00;
         double sodaPrice = 1.50;
 
-        while(true){ /* FIX WHILE CONDITION */
+        while(allowance >= 1.50){ /* FIX WHILE CONDITION */
             printAllowance(allowance);
             printMenu();
-
+	   
             input = scan.nextInt();
+            if(input== 1){ //PIZZA costs 2.50
+		if(allowance < pizzaPrice){
+		    printFailure("Pizza");	    
+                }   
+                else{
+ 	            allowance = allowance - pizzaPrice;
+                }
+            }
+
+		else if(input== 2){ //ICE CREAM costs 2.00
+		         if(allowance < iceCreamPrice){
+                             printFailure("Ice Cream");
+                }
+                else{
+                    allowance = allowance - iceCreamPrice;
+                }
+            }
+	    else if(input== 3){ //Soda costs 1.50
+   		     if(allowance < sodaPrice){
+                         printFailure("Soda");
+                }
+                else{
+                    allowance = allowance - iceCreamPrice;
+                }
+            } 
+            else{
+                System.out.println("Goodbye");
+
+            }
+           
             /**
              *
              * ENTER YOUR CODE HERE

@@ -14,13 +14,39 @@ public class Tester{
 
         boolean correct = false;
 
-        while (true){ /* FIX THIS WHILE LOOP CONDITION */
+        while (board.getLives() > 0 || board.allLettersFilled() == true){ /* FIX THIS WHILE LOOP CONDITION */
 
             /**
              *
              * ENTER YOUR CODE HERE
-             *
+             * NUMBER OF LIV
              */
+	   if(board.getLives() == 6){
+		System.out.println(Hangman.base());
+	   }		 
+	   if(board.getLives() == 5){
+		System.out.println(Hangman.strikeOne());
+	   }
+
+           if(board.getLives() == 4){
+		System.out.println(Hangman.strikeTwo());
+           }
+        
+           if(board.getLives() == 3){
+		System.out.println(Hangman.strikeThree());
+           }   
+
+           if(board.getLives() == 2){
+     		System.out.println(Hangman.strikeFour());
+           }
+
+           if(board.getLives() == 1){
+                System.out.println(Hangman.strikeFive());
+           }
+     
+           if(board.getLives() == 0){
+                System.out.println(Hangman.strikeSix());
+           }
 
             if(!board.getIncorrectGuesses().equals("\n")){
                 System.out.println("Letters Guessed: " + board.getIncorrectGuesses());
@@ -33,6 +59,7 @@ public class Tester{
             input = input.substring(0,1);
 
             correct = board.setMove(input);
+	    board.updateNumberOfLives(correct);
 
             if(!correct){
                 lettersGuessed += input + " ";
