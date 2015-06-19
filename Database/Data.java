@@ -11,14 +11,28 @@ public class Data
     public Data(){
         relations = new Data[10];
     }
+    
+    public Data [] getRelations(){
+        return relations;
+    }
+    
+    public Data(String first_Name, String last_Name, int my_age){
+        firstName = first_Name;
+        lastName = last_Name; 
+        age = my_age;
+    }
 
-    public String getfirstName(){
+    public void setRelations(Data [] my_relations){
+        relations = my_relations;
+    }
+
+    public String getFirstName(){
         return firstName;
     }
     public void setFirstName(String first_name){
         firstName = first_name;
     }
-    public String getlastName(){
+    public String getLastName(){
         return lastName;
     }
     public void setLastName(String last_name){
